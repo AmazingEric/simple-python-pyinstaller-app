@@ -2,6 +2,7 @@ pipeline {
   agent {
     docker {
       image 'python:2-alpine'
+      args 'pip install pytest'
     }
 
   }
