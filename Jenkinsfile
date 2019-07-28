@@ -13,7 +13,7 @@ pipeline {
     }
     stage('Test') {
       steps {
-        sh 'python -m unittest --junit-xml test-reports/results.xml sources/test_calc.py'
+        sh 'pytest --verbose --junit-xml=test-reports/results.xml sources/test_calc.py'
         junit 'test-reports/results.xml'
       }
     }
