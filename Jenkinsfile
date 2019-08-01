@@ -41,5 +41,17 @@ pipeline {
                 }
             }
         }
+        stage('POST') {
+            agent {
+                docker {
+                    image 'crazymax/svn2git-mirror'
+                }
+            }
+            steps {
+                sh 'svn co -r N svn://47.94.15.225'
+                sh 'svn add dist/add2vals'
+                sh 'svn co -m "add file" dist/add2vals'
+            }
+        }
     }
 }
